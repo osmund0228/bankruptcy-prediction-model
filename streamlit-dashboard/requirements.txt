@@ -1,0 +1,26 @@
+# Web Framework
+streamlit
+
+# Data Analysis
+pandas
+numpy
+
+# Machine Learning & XAI
+xgboost
+shap
+joblib
+
+# Visualization
+plotly
+matplotlib
+
+# Data API
+pykrx
+google-genai
+st-gsheets-connection
+
+# Utilities
+python-dotenv
+
+# Dependency Fix for pykrx (Python 3.12+)
+setuptools
