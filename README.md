@@ -54,6 +54,10 @@ Gemini API 연동과 참고용 구글시트 연결이 필요합니다.
 3. `connections.gsheets.spreadsheet`에 사용할 구글시트 URL 입력
 4. `streamlit run app.py`
 
+## 데모 배포
+
+https://bankruptcy-prediction-model-gy5akqsutrspnkemarvypb.streamlit.app/
+
 ## 기술 스택
 
 Python, Pandas, XGBoost, Ko-BigBird(KoBigBird), DART Open API, Streamlit, Gemini API
