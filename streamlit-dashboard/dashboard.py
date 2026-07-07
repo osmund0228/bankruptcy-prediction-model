@@ -1,5 +1,6 @@
 # dashboard.py
 import os
+import time
 from pykrx import stock
 import pandas as pd
 import numpy as np
@@ -425,8 +426,18 @@ def get_gemini_rag_analysis(data_summary, shap_data):
         (주의: SHAP 값이 양수(+)면 위험, 음수(-)면 안전입니다. 이 규칙을 절대 혼동하지 마세요.)
         """
 
-        response = client.models.generate_content(model='gemini-2.5-flash', contents=prompt)
-        return response.text
+        last_error = None
+        for attempt in range(3):
+            try:
+                response = client.models.generate_content(model='gemini-3.1-flash-lite', contents=prompt)
+                return response.text
+            except Exception as e:
+                last_error = e
+                if "503" in str(e) or "UNAVAILABLE" in str(e):
+                    time.sleep(2 * (attempt + 1))  # 2초, 4초, 6초 대기 후 재시도
+                    continue
+                raise
+        return f"분석 생성 실패: {str(last_error)} (일시적인 서버 과부하로 3회 재시도 후에도 실패했습니다. 잠시 후 다시 시도해주세요.)"
 
     except Exception as e:
         return f"분석 생성 실패: {str(e)}"
