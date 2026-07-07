@@ -1,4 +1,5 @@
 # dashboard.py
+import os
 from pykrx import stock
 import pandas as pd
 import numpy as np
@@ -9,6 +10,7 @@ import shap
 from streamlit_gsheets import GSheetsConnection
 
 # === 설정 ===
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
 
 FEATURE_NAMES = [
@@ -75,7 +77,7 @@ FEATURE_MAP = {
 
 @st.cache_resource
 def load_model():
-    return joblib.load("model_xgb_new_23.pkl")
+    return joblib.load(os.path.join(BASE_DIR, "model_xgb_new_23.pkl"))
 
 def load_data_and_model(ticker):
     code = ticker.strip() 
