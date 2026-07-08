@@ -16,6 +16,7 @@
 
 - 배포: https://bankruptcy-prediction-model-gy5akqsutrspnkemarvypb.streamlit.app/
 - 시연 영상: https://youtu.be/zYJQLuzcxbk
+- 발표자료: `docs/2차_인콘_발표자료.pdf`
 
 ## 주요 내용 및 성과
 
@@ -43,8 +44,6 @@
    - `3-1` : 하이퍼파라미터 튜닝
    - `3-2` : 모델 결과 시각화 (feature importance 등)
 4. **Streamlit 대시보드** (`streamlit-dashboard/`) — 학습된 모델로 예측 결과를 조회하고 SHAP·LLM 기반 설명을 제공
-
-`docs/` 폴더에는 최종 발표 자료(PPT)가 있습니다.
 
 ## 데이터
 
