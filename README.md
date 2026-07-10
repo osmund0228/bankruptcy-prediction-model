@@ -12,7 +12,7 @@
 
 프로젝트 리더 (PM 및 모델링)
 
-## 데모 및 발표 자료
+## 데모 및 발표자료
 
 - 데모 링크: https://bankruptcy-prediction-model-gy5akqsutrspnkemarvypb.streamlit.app/
 - 데모 시연 영상: https://youtu.be/zYJQLuzcxbk
