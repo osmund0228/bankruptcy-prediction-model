@@ -14,7 +14,7 @@
 
 ## 데모 및 발표자료
 
-- 배포: https://bankruptcy-prediction-model-gy5akqsutrspnkemarvypb.streamlit.app/
+- 배포 링크: https://bankruptcy-prediction-model-gy5akqsutrspnkemarvypb.streamlit.app/
 - 시연 영상: https://youtu.be/zYJQLuzcxbk
 - 발표자료: `docs/2차_인콘_발표자료.pdf`
 
