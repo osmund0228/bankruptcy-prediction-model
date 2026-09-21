@@ -23,4 +23,4 @@ st-gsheets-connection
 python-dotenv
 
 # Dependency Fix for pykrx (Python 3.12+)
-setuptools
+setuptools==69.5.1
