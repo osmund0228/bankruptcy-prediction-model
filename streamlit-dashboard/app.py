@@ -262,24 +262,15 @@ if st.session_state.get('run'):
     # --------------------------------------------------------------------------------
     st.divider()
     st.subheader("✨ Generative AI 리포트")
+    
     # AI 리포트를 불러옴
     ai_report = db.get_gemini_rag_analysis(data, shap_data)
-    # 옅은 하늘색 배경과 깔끔한 테두리를 가진 커스텀 박스 생성
-    st.markdown(
-        f"""
-        <div style="
-            background-color: #F0F7FF; 
-            border: 1px solid #D0E3FF; 
-            border-radius: 10px; 
-            padding: 20px; 
-            color: inherit;
-        ">
-        {ai_report}
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+    
+    # 1. 옅은 하늘색 배경 스타일 정의
+    st.markdown("<style>.report-box { background-color: #F0F7FF; border: 1px solid #D0E3FF; border-radius: 10px; padding: 20px; }</style>", unsafe_allow_html=True)
 
-    # 테두리가 있는 예쁜 박스(카드) 안에 마크다운 리포트 출력
-    #with st.container(border=True):
-     #    st.markdown(ai_report)
+    # 2. 박스 형태를 유지하며 깨짐 없이 마크다운 리포트 출력
+    with st.container():
+        st.markdown('<div class="report-box">', unsafe_allow_html=True)
+        st.markdown(ai_report)
+        st.markdown('</div>', unsafe_allow_html=True)
