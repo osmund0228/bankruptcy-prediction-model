@@ -4,7 +4,9 @@ __pycache__/
 .DS_Store
 .env
 .vscode/
-.streamlit/secrets.toml
+streamlit-dashboard/.streamlit/secrets.toml
 *.csv
 *.xlsx
 docs_cache/
+secrets.toml
+**/secrets.toml
