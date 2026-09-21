@@ -262,6 +262,9 @@ if st.session_state.get('run'):
     # --------------------------------------------------------------------------------
     st.divider()
     st.subheader("✨ Generative AI 리포트")
-    # AI 리포트를 불러와서 일반 마크다운 영역에 깔끔하게 출력
+    # AI 리포트를 불러옴
     ai_report = db.get_gemini_rag_analysis(data, shap_data)
-    st.markdown(ai_report)
+
+    # 테두리가 있는 예쁜 박스(카드) 안에 마크다운 리포트 출력
+    with st.container(border=True):
+        st.markdown(ai_report)

@@ -430,8 +430,7 @@ def get_gemini_rag_analysis(data_summary, shap_data):
         for attempt in range(3):
             try:
                 response = client.models.generate_content(model='gemini-3.1-flash-lite', contents=prompt)
-                clean_text = response.text.replace(r'\*', '*')
-                return clean_text
+                return response.text
             except Exception as e:
                 last_error = e
                 if "503" in str(e) or "UNAVAILABLE" in str(e):
