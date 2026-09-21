@@ -266,11 +266,25 @@ if st.session_state.get('run'):
     # AI 리포트를 불러옴
     ai_report = db.get_gemini_rag_analysis(data, shap_data)
     
-    # 1. 옅은 하늘색 배경 스타일 정의
-    st.markdown("<style>.report-box { background-color: #F0F7FF; border: 1px solid #D0E3FF; border-radius: 10px; padding: 20px; }</style>", unsafe_allow_html=True)
+    # [핵심] 스트림릿 컨테이너 자체를 하늘색 박스로 만드는 CSS 주입
+    st.markdown(
+        """
+        <style>
+        [data-testid="stVerticalBlockBorderWrapper"]:has(.report-container) {
+            background-color: #F0F7FF !important;
+            border: 1px solid #D0E3FF !important;
+            border-radius: 10px !important;
+            padding: 10px !important;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
 
-    # 2. 박스 형태를 유지하며 깨짐 없이 마크다운 리포트 출력
-    with st.container():
-        st.markdown('<div class="report-box">', unsafe_allow_html=True)
+    # st.container(border=True) 내부를 통째로 하늘색으로 바꿉니다.
+    with st.container(border=True):
+        # 이 컨테이너가 하늘색 박스 스타일을 적용받도록 앵커(영역 표시)를 심어줍니다.
+        st.markdown('<span class="report-container"></span>', unsafe_allow_html=True)
+        
+        # 원래 잘 나오던 리포트 내용을 그대로 출력 (절대 깨지지 않고 박스 안에 위치함)
         st.markdown(ai_report)
-        st.markdown('</div>', unsafe_allow_html=True)
