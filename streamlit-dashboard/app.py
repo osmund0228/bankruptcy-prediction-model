@@ -264,7 +264,22 @@ if st.session_state.get('run'):
     st.subheader("✨ Generative AI 리포트")
     # AI 리포트를 불러옴
     ai_report = db.get_gemini_rag_analysis(data, shap_data)
+    # 옅은 하늘색 배경과 깔끔한 테두리를 가진 커스텀 박스 생성
+    st.markdown(
+        f"""
+        <div style="
+            background-color: #F0F7FF; 
+            border: 1px solid #D0E3FF; 
+            border-radius: 10px; 
+            padding: 20px; 
+            color: inherit;
+        ">
+        {ai_report}
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
     # 테두리가 있는 예쁜 박스(카드) 안에 마크다운 리포트 출력
-    with st.container(border=True):
-        st.markdown(ai_report)
+    #with st.container(border=True):
+     #    st.markdown(ai_report)
