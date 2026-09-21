@@ -262,4 +262,6 @@ if st.session_state.get('run'):
     # --------------------------------------------------------------------------------
     st.divider()
     st.subheader("✨ Generative AI 리포트")
-    st.info(db.get_gemini_rag_analysis(data, shap_data))
+    # AI 리포트를 불러와서 일반 마크다운 영역에 깔끔하게 출력
+    ai_report = db.get_gemini_rag_analysis(data, shap_data)
+    st.markdown(ai_report)
